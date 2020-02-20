@@ -89,16 +89,14 @@ def modify_color(img_input, img_target, landmarks1):
 
 
 
-def skin_color_change(user_img, user_landmark, actor_img, actor_landmark):
+def skin_color_change(user_img, user_landmark, actor_img, actor_landmark, resource_path):
     """
-        배우와 피부색 맞춘 유저 사진 저장
-
+    배우와 피부색 맞춘 유저 사진 저장
     :param user_img: 유저 이미지
     :param user_landmark: 유저 랜드마크
     :param actor_img: 배우 이미지
     :param actor_landmark: 배우 랜드마크
-    :param usercolor_changed_path: 피부색 바뀐 유저 사진 저장을 위한 폴더명
-    :param video_index:  비디오 프레임 인덱스
+    :param resource_path: 피부색 바뀐 유저 사진 저장을 위한 폴더명
     """
 
     # 유저/배우 랜드마크를 mat형식으로 변환
@@ -109,11 +107,11 @@ def skin_color_change(user_img, user_landmark, actor_img, actor_landmark):
     m = transfer_points(mat_actor_landmarks_points, mat_user_landmarks_points)
     # 배우와 얼굴크기, 각도 맞춘 이미지
     warped_img_user = warp_img(user_img, m, actor_img.shape)
-
+    cv2.imwrite(resource_path + "/warped_user.jpg", warped_img_user)
     # 액터와 피부색까지 맞춘 유저 이미지
     warped_corrected_img_target = modify_color(actor_img, warped_img_user, mat_actor_landmarks_points)
 
-    cv2.imwrite("warped_corrected_img_target.jpg",warped_corrected_img_target)
-    warped_corrected_img_target = cv2.imread("warped_corrected_img_target.jpg")
+    cv2.imwrite(resource_path+"/warped_modify_color_user.jpg", warped_corrected_img_target)
+    warped_corrected_img_target = cv2.imread(resource_path + "/warped_modify_color_user.jpg")
 
     return warped_corrected_img_target

@@ -206,11 +206,12 @@ def partial_synthesis(actor_img, new_user_img, user_landmarks, actor_repaint_img
 
     # 오른쪽 눈
     actor_repaint_img = right_eye(actor_img, new_user_img, user_landmarks, actor_repaint_img)
-
-    # 코
+    #
+    # actor_repaint_img
+    # # 코
     actor_repaint_img = nose_synthesis(actor_img, new_user_img, user_landmarks, actor_repaint_img, ratio)
-
-    # 입
+    #actor_repaint_img
+    # # 입
     result = mouth_synthesis(actor_img, new_user_img, user_landmarks, actor_repaint_img)
 
     return result

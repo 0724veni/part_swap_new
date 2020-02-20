@@ -10,7 +10,7 @@ RIGHT_EYE_POINTS = list(range(42, 48))
 COLOUR_CORRECT_BLUR_FRAC = 0.6
 
 
-def resize_point(points, size=0.3, x=1, y=1) :
+def resize_point(points, size=0.3, x=1, y=1):
     """
     여기는 도형의 크기를 늘린다.
     먼저 도형의 꼭짓점 좌표를 받은 다음 좌표들의 중심점을 찾는다.

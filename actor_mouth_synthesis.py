@@ -59,7 +59,7 @@ def get_mouth_mask(img, landmarks):
     return lip_mask
 
 
-def mouth_synthesis(user_img, actor_img, actor_landmarks):
+def mouth_synthesis(user_img, actor_img, actor_landmarks, resource_path):
 
     # 배우 입 안 이미지
     mouth_img = mouth_crop(actor_img, actor_landmarks)
@@ -83,8 +83,8 @@ def mouth_synthesis(user_img, actor_img, actor_landmarks):
     res = temp1 + temp2
 
     # 저장했다가 써야 에러 안남
-    cv2.imwrite("res.jpg", res)
-    res = cv2.imread("res.jpg")
+    cv2.imwrite(resource_path+"/in_actormouth_synthesis.jpg", res)
+    res = cv2.imread(resource_path+"/in_actormouth_synthesis.jpg")
 
     return res
 

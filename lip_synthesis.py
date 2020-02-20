@@ -3,14 +3,12 @@ import numpy as np
 import copy
 from resize_point import *
 
-def lip_synthesis(repaint_actor_img, actor_img, user_landmarks):
+def lip_synthesis(repaint_actor_img, actor_img, user_landmarks, resource_path):
     """
     :param repaint_actor_img: 이목구비 지운 액터 이미지
     :param actor_img: 액터 이미지
-    :param user_img: 유저 이미지
     :param user_landmarks: 유저 랜드마크
-    :param actor_landmarks: 액터 랜드마크
-    :param mat_actor_landmarks_points:  액터 랜드마크 mat형식
+    :param resource_path: 입술 바뀐 이미지 저장 경로
     :return:
     """
 
@@ -58,7 +56,7 @@ def lip_synthesis(repaint_actor_img, actor_img, user_landmarks):
     res = temp + temp2
 
     # 저장했다가 써야 에러 안남
-    cv2.imwrite("res.jpg",res)
-    res = cv2.imread("res.jpg")
+    cv2.imwrite(resource_path+"/lip_synthesis.jpg", res)
+    res = cv2.imread(resource_path+"/lip_synthesis.jpg")
 
     return res

@@ -146,15 +146,16 @@ def warp_image_3d(src_img, src_points, dst_points, dst_shape, dtype=np.uint8):
 
     return result_img
 
-def mask_from_points(size, points,erode_flag=1):
+def mask_from_points(size, points, resource_path, erode_flag=1):
     radius = 10  # kernel size
     kernel = np.ones((radius, radius), np.uint8)
 
     mask = np.zeros(size, np.uint8)
     cv2.fillConvexPoly(mask, cv2.convexHull(points), 255)
+    cv2.imwrite(resource_path+"/before_erode_mask.jpg", mask)
     if erode_flag:
         mask = cv2.erode(mask, kernel,iterations=1)
-
+    cv2.imwrite(resource_path + "/after_erode_mask.jpg", mask)
     return mask
 
 
@@ -169,7 +170,7 @@ def select_userface(im, adjusted_user_lf, r=10):
 
     return points - np.asarray([[x, y]]), (x, y, w, h), im[y:y+h, x:x+w]
 
-def faceswap(user_img, user_landmark, actor_img, actor_landmark):
+def faceswap(user_img, user_landmark, actor_img, actor_landmark, resource_path):
     """
         유저-배우 얼굴 전체 합성
     :param user_img:
@@ -187,14 +188,16 @@ def faceswap(user_img, user_landmark, actor_img, actor_landmark):
 
     warped_user_face = warp_image_3d(user_face, user_points[:68], actor_points[:68], (h, w))
 
-    mask = mask_from_points((h, w), actor_points)
+    mask = mask_from_points((h, w), actor_points, resource_path)
     mask_user = np.mean(warped_user_face, axis=2) > 0
+    print("mask_user.shape : {}", mask_user.shape)
+    # cv2.imwrite(resource_path+"/mask_user.jpg", mask_user)
     mask = np.asarray(mask * mask_user, dtype=np.uint8)
-
+    cv2.imwrite(resource_path + "/actor_user_mask.jpg", mask)
     ## Shrink the mask
     kernel = np.ones((10, 10), np.uint8)
     mask = cv2.erode(mask, kernel, iterations=1)
-
+    cv2.imwrite(resource_path + "/actor_user_erode_mask.jpg", mask)
     ##Poisson Blending
     r = cv2.boundingRect(mask)
     center = ((r[0] + int(r[2] / 2), r[1] + int(r[3] / 2)))
@@ -206,5 +209,4 @@ def faceswap(user_img, user_landmark, actor_img, actor_landmark):
     dst_img_cp[y:y + h, x:x + w] = output
 
     output = dst_img_cp
-
     return output
