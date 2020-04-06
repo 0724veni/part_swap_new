@@ -47,7 +47,7 @@ contents/video/frames/'배우이름'에 위치해야 한다.
 ### gif, video에서 프레임을 추출하는 파일
     getframes.py
    
-###contents
+### contents
     사용자 이미지 - user_images
     배우 이미지 - images/original
     배우 gif - gif/frames : gif 파일의 프레임들, 프로토콜 json 파일
