@@ -113,13 +113,13 @@ def right_eye(actor_img, new_user_img, landmarks, actor_repaint_img):
     center_face2 = (int((x + x + w) / 2), int((y + y + h) / 2))
     synthesis_actor_inpaint_img = actor_repaint_img.copy()
 
-    print ("right_eye_img = " + str(right_eye_img.shape))
-    print ("synthesis_actor_inpaint_img = " + str(synthesis_actor_inpaint_img.shape))
+    # print ("right_eye_img = " + str(right_eye_img.shape))
+    # print ("synthesis_actor_inpaint_img = " + str(synthesis_actor_inpaint_img.shape))
 
-    print ("y = " + str(y))
-    print ("y + h = " + str(y + h))
-    print ("x = " + str(x))
-    print ("x + w = " + str(x + w))
+    # print ("y = " + str(y))
+    # print ("y + h = " + str(y + h))
+    # print ("x = " + str(x))
+    # print ("x + w = " + str(x + w))
 
     synthesis_actor_inpaint_img[y:y + h, x:x + w] = right_eye_img
 

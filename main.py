@@ -1,6 +1,7 @@
+import time
+starttime = time.time()
 import cv2
 import dlib
-
 from lip_synthesis import lip_synthesis
 from partial_synthesis import partial_synthesis
 from actor_mouth_synthesis import mouth_synthesis
@@ -12,7 +13,15 @@ from face_repaint import face_repaint
 
 
 
-def partswap(user_img, actor_img, resource_path):
+def partswap(user_file_name, user_img_upload_dir, actor_file_name, actor_frame_path):
+    # 유저, 배우 합성 과정에 생길 이미지들이 담길 디렉토리 생성
+    resource_path = "contents/resource/images/" + actor_file_name.split(".")[0] + "_" + user_file_name.split(".")[0]
+    if not (os.path.isdir(resource_path)):
+        os.makedirs(os.path.join(resource_path))
+    result_path = "contents/swap_result/images"
+
+    user_img = cv2.imread(user_img_upload_dir + "/" + user_file_name)
+    actor_img = cv2.imread(actor_frame_path + "/" + actor_file_name)
 
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -47,7 +56,7 @@ def partswap(user_img, actor_img, resource_path):
     # 배우와 전체합성 한 유저 이미지
     # 해당 이미지를 배우 이미지에 부분합성 한다
     user_img = faceswap(user_img, user_landmark, actor_img, actor_landmark, resource_path)
-    cv2.imwrite(resource_path + "/3d_faceswap.jpg", user_img)
+    # cv2.imwrite(resource_path + "/3d_faceswap.jpg", user_img)
 
     # 배우 repaint_img + 액터 입술색 합성
     # repaint_img이미지에 입술색을 합성하지 않으면 입을 합성할때 입술색이 날라가서 피부색으로 나옴
@@ -59,24 +68,13 @@ def partswap(user_img, actor_img, resource_path):
     # 입 안 합성
     res = mouth_synthesis(partial_synthesis_img, actor_img, actor_landmark, resource_path)
 
-    cv2.imwrite("images/result/"+actor_img_path.split(".")[0]+user_img_path, res)
-    cv2.imwrite(resource_path+"/" + actor_img_path.split(".")[0] + user_img_path, res)
-
+    cv2.imwrite(result_path+"/"+actor_file_name.split(".")[0]+user_file_name, res)
 
 if __name__ == "__main__":
+    user_file_name = "user-115.jpg"
+    actor_file_name = "actor-1-1.jpg"
+    user_img_upload_dir = "contents/user_images"
+    actor_frame_path = "contents/images/original"
 
-    global user_img_path, actor_img_path
-
-    user_img_path = "user (28).jpg"
-    actor_img_path = "actor (12).jpg"
-
-    # 유저, 배우 합성 과정에 생길 이미지들이 담길 디렉토리 생성
-    resource_path = "images/resource/" + actor_img_path.split(".")[0] + "_" + user_img_path.split(".")[0]
-    if not (os.path.isdir(resource_path)):
-        os.makedirs(os.path.join(resource_path))
-
-    user_img = cv2.imread("images/user/"+user_img_path)
-    actor_img = cv2.imread("images/actor/"+actor_img_path)
-
-    partswap(user_img, actor_img, resource_path)
-
+    partswap(user_file_name, user_img_upload_dir, actor_file_name, actor_frame_path)
+    print("한 장 합성하는데 걸린 시간 : ", time.time()-starttime)

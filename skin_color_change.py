@@ -107,7 +107,7 @@ def skin_color_change(user_img, user_landmark, actor_img, actor_landmark, resour
     m = transfer_points(mat_actor_landmarks_points, mat_user_landmarks_points)
     # 배우와 얼굴크기, 각도 맞춘 이미지
     warped_img_user = warp_img(user_img, m, actor_img.shape)
-    cv2.imwrite(resource_path + "/warped_user.jpg", warped_img_user)
+    # cv2.imwrite(resource_path + "/warped_user.jpg", warped_img_user)
     # 액터와 피부색까지 맞춘 유저 이미지
     warped_corrected_img_target = modify_color(actor_img, warped_img_user, mat_actor_landmarks_points)
 

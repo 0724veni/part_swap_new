@@ -5,8 +5,8 @@ import dlib
 import numpy as np
 import scipy.spatial as spatial
 
-PREDICTOR_PATH = 'shape_predictor_68_face_landmarks.dat'
-predictor = dlib.shape_predictor(PREDICTOR_PATH)
+# PREDICTOR_PATH = 'shape_predictor_68_face_landmarks.dat'
+# predictor = dlib.shape_predictor(PREDICTOR_PATH)
 
 ## Face detection
 def face_detection(img,upsample_times=1):
@@ -46,16 +46,16 @@ def triangular_affine_matrices(vertices, src_points, dst_points):
         yield mat
 
 ## Face and points detection
-def face_points_detection(img, bbox:dlib.rectangle):
-    # Get the landmarks/parts for the face in box d.
-    shape = predictor(img, bbox)
-
-    # loop over the 68 facial landmarks and convert them
-    # to a 2-tuple of (x, y)-coordinates
-    coords = np.asarray(list([p.x, p.y] for p in shape.parts()), dtype=np.int)
-
-    # return the array of (x, y)-coordinates
-    return coords
+# def face_points_detection(img, bbox:dlib.rectangle):
+#     # Get the landmarks/parts for the face in box d.
+#     shape = predictor(img, bbox)
+#
+#     # loop over the 68 facial landmarks and convert them
+#     # to a 2-tuple of (x, y)-coordinates
+#     coords = np.asarray(list([p.x, p.y] for p in shape.parts()), dtype=np.int)
+#
+#     # return the array of (x, y)-coordinates
+#     return coords
 
 def grid_coordinates(points):
     """ x,y grid coordinates within the ROI of supplied points
@@ -190,14 +190,14 @@ def faceswap(user_img, user_landmark, actor_img, actor_landmark, resource_path):
 
     mask = mask_from_points((h, w), actor_points, resource_path)
     mask_user = np.mean(warped_user_face, axis=2) > 0
-    print("mask_user.shape : {}", mask_user.shape)
+    # print("mask_user.shape : {}", mask_user.shape)
     # cv2.imwrite(resource_path+"/mask_user.jpg", mask_user)
     mask = np.asarray(mask * mask_user, dtype=np.uint8)
-    cv2.imwrite(resource_path + "/actor_user_mask.jpg", mask)
+    # cv2.imwrite(resource_path + "/actor_user_mask.jpg", mask)
     ## Shrink the mask
     kernel = np.ones((10, 10), np.uint8)
     mask = cv2.erode(mask, kernel, iterations=1)
-    cv2.imwrite(resource_path + "/actor_user_erode_mask.jpg", mask)
+    # cv2.imwrite(resource_path + "/actor_user_erode_mask.jpg", mask)
     ##Poisson Blending
     r = cv2.boundingRect(mask)
     center = ((r[0] + int(r[2] / 2), r[1] + int(r[3] / 2)))
