@@ -4,15 +4,21 @@
 ## 사용 방법 
 1. 3dmodel 합성 방식에서 패키지 설치를 했다면 1번은 건너 뛰어도 됩니다.   
 pip install -r requirements.txt
+
 2. 사용자 이미지는 content/user_images에 위치시킨다.   
-배우 이미지는 main.py -> contents/images   
+배우 이미지는 main.py -> contents/images/original   
 gifswap.py -> contents/gif/frames/'배우이름'   
 videoswap.py -> contents/video/frames/'배우이름'에 위치시킨다.
+   
 3. 이미지 1장 합성은 main.py   
 gif 합성은 gifswap.py   
 video 합성은 videoswap.py에서 사용자 이미지 배우 프레임의 경로를 정한다.
-4. 각각 파일을 실행시켜 합성한다.
 
+4. 각각 파일을 실행시켜 합성한다.   
+
+### 유의사항 
+gif, video의 경우 얼굴 프로토콜 json 파일이 각각 contents/gif/frames/'배우이름',      
+contents/video/frames/'배우이름'에 위치해야 한다.
 
 ## 구조 
 ### 합성 파일
@@ -41,4 +47,12 @@ video 합성은 videoswap.py에서 사용자 이미지 배우 프레임의 경�
 ### gif, video에서 프레임을 추출하는 파일
     getframes.py
    
-#####contents
+###contents
+    사용자 이미지 - user_images
+    배우 이미지 - images/original
+    배우 gif - gif/frames : gif 파일의 프레임들, 프로토콜 json 파일
+            - gif/original : gif 파일  
+    배우 video - video/frames : video 파일의 프레임들, 프로토콜 json 파일
+            - video/original : video 파일
+    합성 과정에서 만들어진 파일들 - resource
+    
