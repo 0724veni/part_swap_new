@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd639b23-e0a1-4c3c-9581-eeb2c2693f50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_repaint.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_repaint.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faceswap_3d.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceswap_3d.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/actor/actor (12).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/actor/actor.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/3d_faceswap.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/actor (12)user (28).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/actor_user_erode_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/actor_user_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/after_erode_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/before_erode_mask.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/face_repaint.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/in_actormouth_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/inpaint.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/lip_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/partial_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/warped_modify_color_user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user (28)/warped_user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/3d_faceswap.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/actor (12)user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/face_repaint.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/in_actormouth_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/inpaint.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/lip_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/partial_synthesis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/warped_modify_color_user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/actor (12)_user/warped_user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/cha.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/chanoseresult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/charesult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/eyeresult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/kimsu.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/mouthresult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/noseresult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/partresult.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/res.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/result.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/resultoutmouth.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/seung.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/resource/bf/warped_corrected_img_target.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/result/actor (12)user (28).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/result/actor (12)user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/user/shape3D_renderedImg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/user/user (28).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/user/user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/partial_synthesis.py" beforeDir="false" afterPath="$PROJECT_DIR$/partial_synthesis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/skin_color_change.py" beforeDir="false" afterPath="$PROJECT_DIR$/skin_color_change.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +47,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581507507053</updated>
-      <workItem from="1586154362513" duration="3194000" />
+      <workItem from="1586154362513" duration="3940000" />
     </task>
     <servers />
   </component>
